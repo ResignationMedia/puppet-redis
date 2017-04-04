@@ -4,6 +4,9 @@
 This module installs and manages a Redis server. All redis.conf options are
 accepted in the parameterized class.
 
+##NOTE
+The upstream version of this module is horribly out of date and unmaintained. We're only maintaining this right now until we can switch to a maintained redis module. If you stumbled on this repo, run away.
+
 ##Important
 
 If you are upgrading this module from 0.x to 1.0+, please test it carefully 

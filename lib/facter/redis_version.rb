@@ -39,15 +39,9 @@ Facter.add("redis_version") do
     confine :osfamily => "RedHat"
 
     setcode do
-
-        yum = `which yum 2> /dev/null`.chomp
-        if yum == ''
-            yum = '/usr/bin/yum'
-        end
-
         redis_version = Facter::Util::Resolution.exec('/usr/sbin/redis-server --version')
         if redis_version.nil?
-            redis_version = Facter::Util::Resolution.exec(yum+" info redis 2> /dev/null | /bin/grep '^Version' | /bin/awk -F ':' '{printf(\"%s\",$2)}' | sort -nr | head -1")
+            redis_version = Facter::Util::Resolution.exec('/usr/bin/redis-cli --version')
         end
 
         case redis_version
