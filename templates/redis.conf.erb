@@ -1903,7 +1903,7 @@ include <%= include %><%= "\n" -%>
 <%- end -%>
 <%- end -%>
 <%- end -%>
-<%- if @redis_version_real == "2.8.x" -%>
+<%- if @redis_version_real == "2.8.x" or @redis_version_real == '3.2' -%>
 # MANAGED BY PUPPET #
 #
 # Redis 2.8 configuration file example
